@@ -1,4 +1,4 @@
-module subpipe
+module github.com/subpipe/subpipe
 
 go 1.25.0
 
