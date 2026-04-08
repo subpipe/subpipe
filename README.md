@@ -2,18 +2,18 @@
 
 > **Detect DNS Vulnerabilities With Absolute Accuracy.**
 
-A high-octane sniper engine designed for bug bounty hunters. Stop chasing theoretical noise; get verified takeovers, dangling cloud IPs, and SSRF enablers with zero false positives. 
+A high-octane sniper engine designed for bug bounty hunters and red teamers. Stop chasing theoretical noise; get verified takeovers, dangling cloud IPs, and SSRF enablers with zero false positives. 
 
 SubPipe acts as a lightning-fast CLI client that pipes your reconnaissance data directly into our concurrent cloud engines, streaming actionable vulnerabilities back to your terminal in real-time.
 
 ## ✨ Core Features
 
-* **Zero False Positives:** Actively suppresses noise by verifying live hosts before flagging.
-* **Real-Time Streaming:** Built on Server-Sent Events (SSE) to deliver findings the millisecond they are discovered—no waiting for batch jobs to finish.
-* **Cloud IP Engine:** Identifies dangling Elastic IPs (AWS, GCP), Azure takeovers, and internal RFC1918 IP exposures (SSRF enablers).
-* **Registrar Engine:** Bypasses standard resolvers using raw API checks to catch dangling CNAMEs, expired MX records, and critical NS takeovers.
-* **PaaS Takeovers:** Natively detects unprotected Surge, ElasticBeanstalk, and other managed service endpoints.
-* **Smart Deduplication:** Automatically strips messy URLs, ports, and duplicate targets to save your quota.
+* **Zero False Positives:** Actively verifies live hosts to eliminate noise.
+* **Real-Time Streaming:** Instant vulnerability delivery via Server-Sent Events (SSE).
+* **Cloud IP Engine:** Detects dangling IPs (AWS/GCP) and internal SSRF enablers (RFC1918).
+* **Registrar Engine:** Catches critical NS, MX, and CNAME takeovers using raw API checks.
+* **PaaS Takeovers:** Flags unprotected Surge, ElasticBeanstalk, and Azure assets.
+* **Smart Deduplication:** Cleans messy URLs and drops duplicates to protect your scan quota.
 
 ## 📥 Installation
 
@@ -22,8 +22,17 @@ You can install SubPipe using Go (recommended) or by downloading a pre-compiled 
 ### Option 1: Install via Go (Recommended)
 If you have Go installed on your system, this is the fastest way to get started. It will automatically compile the binary for your specific OS and architecture:
 ```bash
-go install [github.com/subpipe/subpipe@latest](https://github.com/subpipe/subpipe@latest)
+go install https://github.com/subpipe/subpipe@latest
 ```
+
+## 🔑 Getting an API Key
+
+SubPipe's CLI acts as a lightweight client that routes targets to our concurrent cloud engines. To run scans, you need to grab a free API key from the web dashboard.
+
+1. Go to [subpipe.run](https://subpipe.run)
+2. Sign in to access your dashboard
+3. Copy your `SUBPIPE_API_KEY`
+4. You will automatically receive a quota of free scans (credits are only deducted for valid, actionable targets, not messy input or duplicates).
 
 ## 🛠️ Usage
 
